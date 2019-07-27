@@ -73,7 +73,7 @@ public class Main {
                     romanValueMap.add("17.0");
                     
                 } else if (arr[i].equals("gold") | arr[i].equals("Gold")) {
-                    romanValueMap.add("14450");
+                    romanValueMap.add("14450.0");
                     
                 } else if (arr[i].equals("iron") | arr[i].equals("Iron")) {
                     romanValueMap.add("195.5");
@@ -125,18 +125,16 @@ public class Main {
                 
             } else if (romanValueMap.get(size).equals("14450.0")) {
                 value = value * 14450.0;
-                questionsAndAnswers.replace(s, String.valueOf(value));
+                questionsAndAnswers.put(s, String.valueOf(value));
                 return;
                 
             } else if (romanValueMap.get(size).equals("195.5")) {
                 value = value * 195.5;
                 questionsAndAnswers.replace(s, String.valueOf(value));
                 return;
+                
             } else if (romanValueMap.get(size).equals("I")) {
-                if (size == romanValueMap.size()) { //we can sum
-                    questionsAndAnswers.replace(s, String.valueOf(value));
-                    return;
-                } else if (size+1 < romanValueMap.size()){
+                if (size+1 < romanValueMap.size()){
                     if ((romanValueMap.get(size+1) == "V") | (romanValueMap.get(size+1) == "X") ) { //we can sub
                         value = value - 1;
                     } else if ((romanValueMap.get(size+1) == "L") | (romanValueMap.get(size+1) == "C") ) { //we can sub
@@ -147,6 +145,8 @@ public class Main {
                     }
                 } else {
                     value = value + 1;
+					questionsAndAnswers.put(s, String.valueOf(value));
+					return;
                 }
             }
             else if (romanValueMap.get(size).equals("V")) {
@@ -183,6 +183,8 @@ public class Main {
                     }
                 }  else {
                     value = value + 50;
+					questionsAndAnswers.replace(s, String.valueOf(value));
+					return;
                 }
             }
            
