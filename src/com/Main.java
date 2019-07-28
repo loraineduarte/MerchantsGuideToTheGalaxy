@@ -44,6 +44,7 @@ public class Main {
         InputStreamReader isr = new InputStreamReader(is);
         BufferedReader br = new BufferedReader(isr);
         String s = br.readLine();
+        s.toLowerCase();
         
         while (s != null) {
             romanValueMap.clear();
@@ -51,28 +52,28 @@ public class Main {
             String arr[] = s.split("((?<=:)|(?=:))|( )");
             
             for (int i = 0; i < arr.length; i++) {
-                if (arr[i].equals("glob")) {
+                if (arr[i].equals(Constants.intergalatic_glob)) {
                     romanValueMap.add("I");
                     
-                } else if (arr[i].equals("prok")) {
+                } else if (arr[i].equals(Constants.intergalatic_prok)) {
                     romanValueMap.add("V");
                     
-                } else if (arr[i].equals("pish")) {
+                } else if (arr[i].equals(Constants.intergalatic_pish)) {
                     romanValueMap.add("X");
                     
-                } else if (arr[i].equals("tegj")) {
+                } else if (arr[i].equals(Constants.intergalatic_tegj)) {
                     romanValueMap.add("L");
                     
-                } else if (arr[i].equals("silver") | arr[i].equals("Silver")) {
+                } else if (arr[i].equals(Constants.intergalatic_silver)) {
                     romanValueMap.add("17.0");
                     
-                } else if (arr[i].equals("gold") | arr[i].equals("Gold")) {
+                } else if (arr[i].equals(Constants.intergalatic_gold)) {
                     romanValueMap.add("14450.0");
                     
-                } else if (arr[i].equals("iron") | arr[i].equals("Iron")) {
+                } else if (arr[i].equals(Constants.intergalatic_iron)) {
                     romanValueMap.add("195.5");
                     
-                } else if (arr[i].equals("?")) {
+                } else if (arr[i].equals(Constants.exclamation_point)) {
                     if (romanValueMap.isEmpty()) {
                         questionsAndAnswers.put(s, "What?!?! I don't understand what are you saying, man!");
                     } else {
@@ -85,7 +86,7 @@ public class Main {
         }
         br.close();
 		for (Map.Entry<String, String> entry : questionsAndAnswers.entrySet()) {
-			System.out.println(entry.getKey() + " " + entry.getValue());
+			System.out.println("- " + entry.getKey() + "\n " + entry.getValue());
 		}
     }
     
