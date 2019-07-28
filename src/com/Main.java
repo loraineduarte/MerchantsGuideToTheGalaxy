@@ -1,9 +1,6 @@
 package com;
 
-import sun.misc.IOUtils;
-
 import java.io.*;
-import java.net.URL;
 import java.util.*;
 
 public class Main {
@@ -42,18 +39,15 @@ public class Main {
     public static void main(String[] args) throws IOException {
         
         List<String> romanValueMap = new LinkedList<>();
-        List<String> numericValueMap = new LinkedList<>();
-      
         
         InputStream is = new FileInputStream("./src/com/input.txt");
         InputStreamReader isr = new InputStreamReader(is);
         BufferedReader br = new BufferedReader(isr);
-        String s = br.readLine(); // primeira linha
+        String s = br.readLine();
         
         while (s != null) {
             romanValueMap.clear();
             value = 0.0;
-            System.out.println(s);
             String arr[] = s.split("((?<=:)|(?=:))|( )");
             
             for (int i = 0; i < arr.length; i++) {
@@ -81,9 +75,7 @@ public class Main {
                 } else if (arr[i].equals("?")) {
                     if (romanValueMap.isEmpty()) {
                         questionsAndAnswers.put(s, "What?!?! I don't understand what are you saying, man!");
-                        System.out.println("Entrou");
                     } else {
-                        //pede pra analisar o mapa
                         questionsAndAnswers.put(s, "");
                         analiseMap(romanValueMap, s);
                     }
@@ -92,9 +84,9 @@ public class Main {
             s = br.readLine();
         }
         br.close();
-        for(int i=0; i<questionsAndAnswers.size(); i++){
-            System.out.println(i);
-        }
+		for (Map.Entry<String, String> entry : questionsAndAnswers.entrySet()) {
+			System.out.println(entry.getKey() + " " + entry.getValue());
+		}
     }
     
     public static void analiseMap(List<String> romanValueMap, String s) {
@@ -112,11 +104,8 @@ public class Main {
             questionsAndAnswers.replace(s, "We can't calculate that!");
             return;
         }
-        //System.out.println("The Line is okay");
-        
         
         //Ifs everything okay, we start to calculate
-       
         for (int size = 0; size < romanValueMap.size(); size++) {
             if (romanValueMap.get(size).equals("17.0")) {
                 value = value * 17;
@@ -187,7 +176,6 @@ public class Main {
 					return;
                 }
             }
-           
         }
     }
 }
