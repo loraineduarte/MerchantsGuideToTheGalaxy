@@ -28,4 +28,5 @@ public class Constants {
 	
 	public static final String exclamation_point = "?";
 	
+	public static final String incorrect_input_answer = "What?!?! I don't understand what are you saying!";
 }
