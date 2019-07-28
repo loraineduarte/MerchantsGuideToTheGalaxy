@@ -11,7 +11,6 @@ import java.util.Map;
 public class InputReader {
 	static Map<String, String> questionsAndAnswers = new HashMap<String, String>();
 	
-	
 	public static void readInputFile() throws IOException {
 		InputStream is = new FileInputStream("./src/com/util/input.txt");
 		InputStreamReader isr = new InputStreamReader(is);
@@ -59,7 +58,7 @@ public class InputReader {
 					questionsAndAnswers.put(s, Constants.incorrect_input_answer);
 				} else {
 					questionsAndAnswers.put(s, "");
-					questionsAndAnswers = InputProcessor.analiseMap(romanValueMap, s, questionsAndAnswers);
+					InputProcessor.analiseMap(romanValueMap, s);
 				}
 			}
 		}
