@@ -1,7 +1,8 @@
 package com;
 
+import com.inputLogic.InputReader;
+
 import java.io.*;
-import java.util.*;
 
 public class Main {
     
