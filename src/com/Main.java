@@ -144,7 +144,7 @@ public class Main {
                     return;
                     
                 } else if (size+1 <= romanValueMap.size()){
-                    if ( (romanValueMap.get(size + 1).equals(Constants.roman_numeral_L)) ) { 
+                    if ( (romanValueMap.get(size + 1).equals(Constants.roman_numeral_L)) ) {
                         questionsAndAnswers.replace(s, "We can't calculate that!");
                         return;
                         
